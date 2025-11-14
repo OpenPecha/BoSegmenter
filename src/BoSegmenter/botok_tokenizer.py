@@ -9,8 +9,10 @@ def get_segment_spans(segments):
         end = char_walker + len(segment)
         spans.append(
             {
-                "start": start,
-                "end": end,
+                'span': {
+                    "start": start,
+                    "end": end,
+                }
             }
         )
         char_walker += len(segment)
