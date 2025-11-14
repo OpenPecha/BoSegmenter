@@ -20,7 +20,7 @@ def get_segments(text: str) -> list[str]:
     segments = []
     current_segment = ""
     tokenizer = WordTokenizer()
-    tokens = tokenizer.tokenize(test_str)
+    tokens = tokenizer.tokenize(text)
     sentence_tokens = sentence_tokenizer(tokens)
     for sentence_index, sentence_token in enumerate(sentence_tokens):
         sentence_text = ''
