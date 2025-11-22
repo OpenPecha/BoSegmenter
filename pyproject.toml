@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "botok>=0.9.0",
+    "botok @ git+https://github.com/OpenPecha/botok.git",
 ]
 
 [project.optional-dependencies]

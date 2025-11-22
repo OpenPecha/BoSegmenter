@@ -26,12 +26,9 @@ def is_valid_segment(segment_text):
         return True
     return False
 
-def get_segments(text: str) -> list[str]:
-    segments = []
+def prepare_segments(sentence_tokens: list[dict]) -> list[str]:
     current_segment = ""
-    tokenizer = WordTokenizer()
-    tokens = tokenizer.tokenize(text)
-    sentence_tokens = sentence_tokenizer(tokens)
+    segments = []
     for sentence_index, sentence_token in enumerate(sentence_tokens):
         sentence_text = ''
         for token in sentence_token['tokens']:
@@ -42,4 +39,12 @@ def get_segments(text: str) -> list[str]:
             current_segment = ""
     if current_segment:
         segments.append(current_segment)
+    return segments
+
+def get_segments(text: str) -> list[str]:
+    tokenizer = WordTokenizer()
+    tokens = tokenizer.tokenize(text)
+    sentence_tokens = sentence_tokenizer(tokens)
+    segments = prepare_segments(sentence_tokens)
+    
     return segments
